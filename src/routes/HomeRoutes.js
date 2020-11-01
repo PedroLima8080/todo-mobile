@@ -17,11 +17,11 @@ export default () => {
             <stack.Screen component={Tasks} name="Tasks"/>
             <stack.Screen component={CreateTask} name="CreateTask" options={{
                 headerShown: true,
-                title: 'ADICIONAR TAREFA',
+                title: 'CRIAR TAREFA',
                 headerTitleStyle: { 
                     alignSelf: 'center' 
                 },
-                headerLeft: null
+                headerLeft: null,
                 
             }}/>
         </stack.Navigator>

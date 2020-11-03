@@ -14,7 +14,14 @@ export default () => {
             headerShown:false,
         }}>
             <stack.Screen component={Home} name="Home"/>
-            <stack.Screen component={Tasks} name="Tasks"/>
+            <stack.Screen component={Tasks} name="Tasks" options={{
+                headerShown: true,
+                title: 'MINHAS TAREFAS',
+                headerTitleStyle: { 
+                    alignSelf: 'center' 
+                },
+                headerLeft: null,
+            }}/>
             <stack.Screen component={CreateTask} name="CreateTask" options={{
                 headerShown: true,
                 title: 'CRIAR TAREFA',
@@ -22,7 +29,6 @@ export default () => {
                     alignSelf: 'center' 
                 },
                 headerLeft: null,
-                
             }}/>
         </stack.Navigator>
     )

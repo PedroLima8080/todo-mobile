@@ -15,21 +15,20 @@ export default () => {
     const [titulo, setTitulo] = useState('')
     const [descricao, setDescricao] = useState('')
     const [horario, setHorario] = useState('')
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState()
 
     useEffect(() => {
         async function getTasks() {
             let tasksStorage = await AsyncStorage.getItem('Tasks')
-            if (tasksStorage == null){
-                setTasks([])
-            }
-            else{
+            if (tasksStorage != null){
                 setTasks(JSON.parse(tasksStorage))
             }
-
+            else{
+                setTasks([])
             }
-            getTasks()
-        }, [])
+        }
+        getTasks()
+    }, [])
 
     //salva task
     const saveTask = async () => {
@@ -38,32 +37,26 @@ export default () => {
             task = {
                 titulo,
                 descricao,
+                status: false,
                 horario
             }
         } else {
             task = {
                 titulo,
-                descricao
+                descricao,
+                status: false
             }
         }
 
         let allTasks = [...tasks, task]
 
-        await AsyncStorage.removeItem('Tasks')
         await AsyncStorage.setItem('Tasks', JSON.stringify(allTasks))
-
-        console.log(JSON.stringify(allTasks))
+        navigation.navigate("Tasks")
     }
 
     //cancela criação
     const cancelTask = () => {
-        console.log(tasks)
-/*
-        setTitulo('')
-        setDescricao('')
-        setChecked(false)
-        setHorario('')
-        navigation.navigate('Home')*/
+        navigation.navigate("Home")
     }
 
     return (

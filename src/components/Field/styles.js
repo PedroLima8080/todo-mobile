@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
     FieldText: {
         paddingLeft: 10,
         paddingRight: 15,
-        flex: 1
+        height: 40,
+        flex: 1,
+        lineHeight: 40,
     }
 })
 

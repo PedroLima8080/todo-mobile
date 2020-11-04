@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
+import { RadioButton } from 'react-native-paper';
 
 import Styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -11,36 +12,29 @@ export default (props) => {
     const Buttons = () => {
         return (
             <View style={Styles.ViewButtons}>
-                <TouchableOpacity style={Styles.ButtonCheck} activeOpacity={0.5} onPress={(e) =>{
-                    props.checkTask(task.descricao)
-                }}>
-                    <Icon name="check" size={35} color='white' />
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.ButtonDelete} activeOpacity={0.5} onPress={() => props.removeTask(task.descricao)}>
-                    <Icon name="close" size={35} color='white' />
-                </TouchableOpacity>
+                <Icon name="trash-o" style={[Styles.ColorRemove, Styles.IconTask]} />
+                <Text style={[Styles.ColorRemove, Styles.TextRemove]}>Remover tarefa?</Text>
+                <TouchableOpacity style={[Styles.ColorRemove, Styles.BtnRemove]} onPress={() => {
+                    props.removeTask(task.descricao)
+                }}><Text>Sim</Text></TouchableOpacity>
             </View>
         )
     }
 
     const renderList = () => {
         return (
-            <Swipeable renderLeftActions={Buttons}>
+            <Swipeable renderRightActions={Buttons}>
                 <View style={Styles.Task} key={task.titulo}>
-                    {
-                        task.status==true ? <View style={Styles.IconChecked}><Icon name="check" size={35} color="green" /></View> : null
-                    }
-                    <Text style={Styles.TittleTask}>{task.titulo}</Text>
-                    <Text style={Styles.DescriptionTask}>{task.descricao}</Text>
-                    {
-                        task.horario ?
-                            <Text style={Styles.AlertTask}><Icon name="warning" size={18} /> {task.horario}</Text> :
-                            <Text style={Styles.AlertTask}>SEM AVISOS</Text>
-                    }
+                    <View style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'flex-start' }}>
+                        <RadioButton color="green" status={task.status ? 'checked' : 'unchecked'}
+                            onPress={() => {
+                                props.checkTask(task.descricao)
+                            }} />
+                        <Text style={[Styles.TittleTask, task.status ? Styles.Checked : null]} numberOfLines={1}>{task.titulo}</Text>
+                    </View>
                 </View>
             </Swipeable>
         )
     }
-
     return renderList()
 }

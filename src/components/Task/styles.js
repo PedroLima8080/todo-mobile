@@ -2,54 +2,51 @@ import {StyleSheet} from 'react-native'
 
 
 const styles = StyleSheet.create({
-    ButtonCheck: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#46d470'
+    
+    Task: {
+        backgroundColor: '#ffffff',
+        marginBottom: 3,
+        marginTop: 3,
+        borderRadius: 8,
     },
-    ButtonDelete: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#cc3f54'
+    TittleTask: {
+        color: '#616161',
+        fontSize: 22,
+        marginLeft: 8,
+        letterSpacing: 1.2,
+        flex: 1
+    },
+    Checked: {
+        textDecorationLine: 'line-through'
     },
     ViewButtons: {
-        flexDirection: 'column',
-        width: 50,
-        backgroundColor: '#ffffff'
-    },
-    Task: {
-        height: 100,
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
         padding: 10,
-        backgroundColor: '#ffffff'
+        height: 50
     },
-    TaskChecked: {
-        backgroundColor: 'green'
-    }, 
-    TittleTask: {
-        color: '#34eb98',
-        fontSize: 19,
-        textTransform: 'uppercase',
-        fontWeight: 'bold',
-        letterSpacing: 1.2
+    ColorRemove:{
+        color: '#616161',
     },
-    DescriptionTask: {
-        marginVertical: 8
+    IconTask: {
+        fontSize:30,
+        marginRight: 5,
     },
-    AlertTask: {
-        color: 'red',
-        fontSize: 16,
-        fontWeight: 'bold',
-        letterSpacing: 0.5
+    TextRemove: {
+        fontSize: 18,
+        letterSpacing: 1.1
     },
-    IconChecked: {
-        position: 'absolute',
-        top: 2,
-        right: 2
+    BtnRemove: {
+        marginLeft: 'auto',
+        borderColor: 'gray',
+        borderWidth: 1,
+        color: 'black',
+        paddingVertical: 2.5,
+        paddingHorizontal: 8,
+        fontSize: 18,
+        borderRadius: 8
     }
-
-    //#34eb98
 })
 
 export default styles

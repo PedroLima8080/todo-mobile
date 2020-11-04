@@ -16,7 +16,7 @@ export default () => {
             <stack.Screen component={Home} name="Home"/>
             <stack.Screen component={Tasks} name="Tasks" options={{
                 headerShown: true,
-                title: 'MINHAS TAREFAS',
+                title: 'YouTasks',
                 headerTitleStyle: { 
                     alignSelf: 'center' 
                 },

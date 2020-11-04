@@ -12,7 +12,7 @@ export default () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <Header title="CreateTask" fontSize={50}/>
+            <Header title="CreateTask" fontSize={50} textAlign="center"/>
             <Form />
             <IconPage name="home" size={18} orientation="left" onPress={()=>navigation.navigate("Home")}/>
         </View>

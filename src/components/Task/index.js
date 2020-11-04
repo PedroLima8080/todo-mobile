@@ -28,7 +28,11 @@ export default (props) => {
     const renderList = () => {
         return (
             <Swipeable renderRightActions={Buttons}>
-                <View style={Styles.Task} key={task.titulo}>
+                <TouchableOpacity style={Styles.Task} key={task.titulo} activeOpacity={0.8} 
+                onPress={()=>{
+                    props.setCurrentTask(task)
+                    props.setIsVisible(true)
+                }}>
                     <View style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'flex-start' }}>
                         <RadioButton color="green" status={task.status ? 'checked' : 'unchecked'}
                             onPress={() => {
@@ -36,7 +40,7 @@ export default (props) => {
                             }} />
                         <Text style={[Styles.TittleTask, task.status ? Styles.Checked : null]} numberOfLines={1}>{task.titulo}</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
             </Swipeable>
         )
     }

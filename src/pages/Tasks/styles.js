@@ -11,7 +11,13 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginBottom: 10,
         letterSpacing: 1
-    }
+    },
+    modal: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'orange'
+    },
 })
 
 export default styles

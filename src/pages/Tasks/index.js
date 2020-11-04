@@ -7,11 +7,14 @@ import IconPage from '../../components/IconPage/index'
 import Task from '../../components/Task/index'
 import styles from './styles'
 import Header from '../../components/Header/index'
+import Modal from '../../components/modalTask/index'
 
 export default () => {
     const [tasks, setTasks] = useState(null)
+    const [currentTask, setCurrentTask] = useState()
     const [loading, setLoading] = useState(true)
     const [qntTasks, setQntTasks] = useState(0)
+    const [isVisible, setIsVisible] = useState(false)
 
     const navigation = useNavigation()
 
@@ -24,7 +27,7 @@ export default () => {
         getTasks()
     }, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         refreshQntTasks()
     }, [tasks])
 
@@ -73,25 +76,34 @@ export default () => {
     } else {
         return (
             <View style={{ flex: 1 }}>
-                <Header title="YourTasks" fontSize={50}/>
-                <View style={{ padding: 12 }}>
-                    <View style={{ marginBottom: 10 }}>
-                        <Text style={styles.SpanTopic}>DADOS</Text>
+                <View style={{ flex: 1 }}>
+                    <Header title="YourTasks" fontSize={50} textAlign="center"/>
+                    <View style={{ padding: 12 }}>
+                        <View style={{ marginBottom: 10 }}>
+                            <Text style={styles.SpanTopic}>DADOS</Text>
+                            <View>
+                                {qntTasks > 0 ? <Text style={{ color: '#616161' }}>Tarefas restantes: {qntTasks}</Text> : <Text style={{ color: '#616161' }}>Sem tarefas restantes!</Text>}
+                            </View>
+                        </View>
                         <View>
-                            {qntTasks > 0 ? <Text style={{ color: '#616161' }}>Tarefas restantes: {qntTasks}</Text> : <Text style={{ color: '#616161' }}>Sem tarefas restantes!</Text>}
+                            <Text style={styles.SpanTopic}>SUAS TAREFAS</Text>
+                            {
+                                tasks === null ? <View><Text style={styles.Alert}>Você não possui nenhuma tarefa</Text></View> :
+                                    tasks.map(task =>
+                                        <View key={task.descricao}>
+                                            <Task task={task} checkTask={checkTask} removeTask={removeTask} setCurrentTask={setCurrentTask} setIsVisible={setIsVisible} />
+                                        </View>
+                                    )
+                            }
                         </View>
                     </View>
-                    <View>
-                        <Text style={styles.SpanTopic}>SUAS TAREFAS</Text>
-                        {
-                            tasks === null ? <View><Text style={styles.Alert}>Você não possui nenhuma tarefa</Text></View> :
-                                tasks.map(task => <View key={task.descricao}><Task task={task} checkTask={checkTask} removeTask={removeTask} /></View>)
-                        }
-                    </View>
+                    <IconPage name="home" size={18} orientation="right" onPress={() => navigation.navigate("Home")} />
                 </View>
-                <IconPage name="home" size={18} orientation="right" onPress={() => navigation.navigate("Home")} />
+
+                {
+                    isVisible ? <Modal isVisible={isVisible} task={currentTask} setIsVisible={setIsVisible} /> : null
+                }
             </View>
         )
     }
-
 }

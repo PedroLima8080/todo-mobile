@@ -14,11 +14,14 @@ export default (props) => {
             style={{ flex: 1 }}
         >
             <View style={styles.modal}>
-                <Header title={task.titulo} fontSize={35} textAlign="left"/>
-                <TouchableOpacity style={styles.contentIconClose} onPress={()=>setIsVisible(false)}><Icon style={styles.iconClose} name="close"/></TouchableOpacity>
+                <Header title={task.titulo} fontSize={35} textAlign="center"/>
                 <View style={{padding: 12}}>
                     <Text>{task.descricao}</Text>
                 </View>
+                <TouchableOpacity style={styles.contentIconClose} onPress={()=>setIsVisible(false)}>
+                    <Icon style={styles.iconClose} name="close"/>
+                    <Text style={styles.textClose}>Fechar</Text>
+                </TouchableOpacity>
             </View>
         </Modal>
     )

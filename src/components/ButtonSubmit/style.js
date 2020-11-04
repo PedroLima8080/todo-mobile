@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     ButtonSubmit:{
         paddingVertical: 10,
-        borderRadius: 10,
-        width: 90,
+        marginHorizontal: 5,
+        borderRadius: 5,
+        flex:1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
@@ -19,7 +20,8 @@ const styles = StyleSheet.create({
         color: '#e8e8e8'
     },
     ButtonText: {
-        color: '#e8e8e8'
+        color: '#e8e8e8',
+        fontSize: 18
     }
 })
 

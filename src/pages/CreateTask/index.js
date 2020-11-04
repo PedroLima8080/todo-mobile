@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import Form from '../../components/FormCreateTask/index'
 import IconPage from '../../components/IconPage/index'
+import Header from '../../components/Header/index'
 
 export default () => {
 
@@ -11,6 +12,7 @@ export default () => {
 
     return (
         <View style={{ flex: 1 }}>
+            <Header title="CreateTask" fontSize={50}/>
             <Form />
             <IconPage name="home" size={18} orientation="left" onPress={()=>navigation.navigate("Home")}/>
         </View>

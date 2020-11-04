@@ -11,9 +11,10 @@ export default (props) => {
                 props.type === 'save' ? [styles.ButtonSubmit, styles.ButtonSave] : [styles.ButtonSubmit, styles.ButtonCancel]
             }
             onPress={()=>props.clickAction()}
+            activeOpacity={0.5}
         >
             <Icon name={props.icon} size={18} style={styles.ButtonIcon} />
-            <Text style={styles.ButtonIcon}> {props.text}</Text>
+            <Text style={styles.ButtonText}> {props.text}</Text>
         </TouchableOpacity>
     )
 }

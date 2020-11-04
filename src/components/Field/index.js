@@ -11,7 +11,6 @@ export default (props) => {
             <View style={styles.FullField}>
                 <Text style={styles.SpanField}>{props.tittle}</Text>
                 <View style={styles.Field}>
-                    <Icon name={props.icon} size={18} style={styles.FieldIcon} />
                     <TextInput placeholder={props.placeholder} style={styles.FieldText}
                         value={props.valueText}
                         onChangeText={(t) => {
@@ -53,12 +52,11 @@ export default (props) => {
             <View style={styles.FullField}>
                 <Text style={styles.SpanField}>{props.tittle}</Text>
                 <View style={styles.Field}>
-                    <Icon name={props.icon} size={18} style={styles.FieldIcon} />
                     <Text
                         onPress={() => {
                             setShow(true)
                         }}
-                        style={styles.FieldText}
+                        style={[styles.FieldText, {fontSize: 20, letterSpacing: 1}]}
                     >
                         {`${date.getHours()}:${date.getMinutes()}`}
                     </Text>

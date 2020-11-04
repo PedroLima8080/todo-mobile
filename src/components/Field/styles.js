@@ -5,29 +5,23 @@ const styles = StyleSheet.create({
         marginVertical: 7,
     },
     SpanField: {
-        color: '#34eb98',
+        color: '#616161',
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 12
     },
     Field: {
-        height: 40,
         marginTop: 5,
         alignItems: 'center',
         borderColor: '#3a3a3a',
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 5,
         flexDirection: 'row',
-        padding: 10
-    },
-    FieldIcon: {
-        fontSize: 25,
+        padding: 2,
+        height: 45
     },
     FieldText: {
-        paddingLeft: 10,
-        paddingRight: 15,
-        height: 40,
+        padding: 5,
         flex: 1,
-        lineHeight: 40,
     }
 })
 

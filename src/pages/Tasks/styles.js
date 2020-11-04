@@ -4,12 +4,13 @@ const styles = StyleSheet.create({
     Alert: {
         textAlign: 'center',
         marginTop: 10,
-        fontSize: 18
+        fontSize: 14
     },
     SpanTopic: {
         color: '#616161',
-        fontSize: 14,
-        marginBottom: 10
+        fontSize: 16,
+        marginBottom: 10,
+        letterSpacing: 1
     }
 })
 

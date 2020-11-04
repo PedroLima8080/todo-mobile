@@ -14,9 +14,13 @@ export default (props) => {
             <View style={Styles.ViewButtons}>
                 <Icon name="trash-o" style={[Styles.ColorRemove, Styles.IconTask]} />
                 <Text style={[Styles.ColorRemove, Styles.TextRemove]}>Remover tarefa?</Text>
-                <TouchableOpacity style={[Styles.ColorRemove, Styles.BtnRemove]} onPress={() => {
-                    props.removeTask(task.descricao)
-                }}><Text>Sim</Text></TouchableOpacity>
+                <TouchableOpacity style={[Styles.ColorRemove, Styles.BtnRemove]} 
+                    onPress={() => {
+                        props.removeTask(task.descricao)
+                    }}
+                >
+                    <Text>Sim</Text>
+                </TouchableOpacity>
             </View>
         )
     }

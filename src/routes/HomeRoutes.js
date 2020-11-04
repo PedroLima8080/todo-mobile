@@ -11,25 +11,11 @@ export default () => {
 
     return (
         <stack.Navigator initialRouteName="Home" screenOptions={{
-            headerShown:false,
+            headerShown: false,
         }}>
-            <stack.Screen component={Home} name="Home"/>
-            <stack.Screen component={Tasks} name="Tasks" options={{
-                headerShown: true,
-                title: 'YouTasks',
-                headerTitleStyle: { 
-                    alignSelf: 'center' 
-                },
-                headerLeft: null,
-            }}/>
-            <stack.Screen component={CreateTask} name="CreateTask" options={{
-                headerShown: true,
-                title: 'CRIAR TAREFA',
-                headerTitleStyle: { 
-                    alignSelf: 'center' 
-                },
-                headerLeft: null,
-            }}/>
+            <stack.Screen component={Home} name="Home" />
+            <stack.Screen component={Tasks} name="Tasks" />
+            <stack.Screen component={CreateTask} name="CreateTask" />
         </stack.Navigator>
     )
 }
